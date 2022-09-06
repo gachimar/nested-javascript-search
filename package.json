@@ -1,0 +1,27 @@
+{
+  "name": "nested-javascript-search",
+  "version": "1.0.0",
+  "description": "Javascript Array deep search filter.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "nested-javascript-search"
+  },
+  "keywords": [
+    "javascript",
+    "array",
+    "search",
+    "filter",
+    "word",
+    "filter",
+    "string",
+    "nested",
+    "array",
+    "json"
+  ],
+  "author": "Gabriel Chirinos <gabrielchirinosmarcano@gmail.com> (https://github.com/gachimar)",
+  "license": "ISC"
+}
