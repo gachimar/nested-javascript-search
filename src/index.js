@@ -86,4 +86,6 @@ const searcher = function(json, parametro, whitelist){
     return filterBySearchArray;
 }
 
-export { search }
+export default search
+
+export { search, escape }
