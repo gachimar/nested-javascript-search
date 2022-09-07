@@ -1,6 +1,6 @@
 {
   "name": "nested-javascript-search",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Javascript Array deep search filter.",
   "main": "src/index.js",
   "scripts": {
