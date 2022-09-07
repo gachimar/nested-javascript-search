@@ -51,6 +51,7 @@ const myArray = [
         name:'bar',
         nestedArray:[
             {name:'coffee'}
+        ]
     },
 ]
 
