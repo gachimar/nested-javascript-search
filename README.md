@@ -17,6 +17,9 @@ At first import the library to your project.
 
 import { search } from 'nested-javascript-search'
 
+// or by using a CDN.
+
+import { search } from 'https://unpkg.com/nested-javascript-search@1.0.0/src/index.js'
 ```
 
 Then you can call to the search function.
