@@ -22,7 +22,7 @@ Or by using a html tag.
 
 ```html
 
-<script src="/path/to/slotmachine.min.js"></script>
+<script src="/path/to/nested-javascript-search.js"></script>
 
 ```
 Then you can call to the search function.
