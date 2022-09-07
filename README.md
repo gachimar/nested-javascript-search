@@ -4,14 +4,38 @@ This searcher checks the elements of an array and search for string match.
 
 ## Installation
 
-
-
-```powershell
+```bash
 # Using npm
 npm i nested-javascript-search
 ```
 
 ## Usage
+
+At first import the library to your project.
+
+```JavaScript
+
+import { search } from 'nested-javascript-search'
+
+```
+Or by using a html tag.
+
+```html
+
+<script src="/path/to/slotmachine.min.js"></script>
+
+```
+Then you can call to the search function.
+
+```JavaScript
+
+search(myArray, myStringToMatch)
+
+```
+
+## Example
+
+Filter the array elements by searching into the nested array. It will then return the main array element due to the nested string match.
 
 ```JavaScript
 
