@@ -22,6 +22,18 @@ import { search } from 'nested-javascript-search'
 import { search } from 'https://unpkg.com/nested-javascript-search@1.0.0/src/index.js'
 ```
 
+You can also use it in your html using a script tag with "module" as type.
+
+```html
+
+<script type="module">
+    import search from 'https://unpkg.com/nested-javascript-search@latest/dist/nested-javascript-search.min.js'
+    
+    // Then you can use search as a function here.
+</script>
+
+```
+
 Then you can call to the search function.
 
 ```JavaScript
