@@ -72,7 +72,6 @@ export class Buscador {
                 // Recorrer todas las claves del objeto
                 if (typeof element == "object"){
                     for (const key in element) {
-                        console.log('Elemento: ', typeof element);
                         if (blacklist.includes(key)) {
                             continue
                         }
