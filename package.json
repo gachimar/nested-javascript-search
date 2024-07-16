@@ -1,10 +1,10 @@
 {
   "name": "nested-javascript-search",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "Javascript Array deep search filter.",
-  "main": "src/index.js",
+  "main": "src/index.ts",
   "files": [
-    "dist/nested-javascript-search.min.js"
+    "dist/index.js"
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
