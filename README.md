@@ -1,6 +1,6 @@
 # nested-javascript-search
 
-This searcher checks the elements of an array and search for string match.
+This searcher checks the javascript object elements of an array and search for string match, even in nested arrays inside javascript objects, and retreieves the original array elements that matches with the string parameter.
 
 ## Installation
 
@@ -19,7 +19,7 @@ import { search } from 'nested-javascript-search'
 
 // or by using a CDN.
 
-import { search } from 'https://unpkg.com/nested-javascript-search@latest/dist/nested-javascript-search.min.js'
+import { search } from 'https://unpkg.com/nested-javascript-search@latest/dist/index.js'
 ```
 
 You can also use it in your html using a script tag with "module" as type.
@@ -27,7 +27,7 @@ You can also use it in your html using a script tag with "module" as type.
 ```html
 
 <script type="module">
-    import search from 'https://unpkg.com/nested-javascript-search@latest/dist/nested-javascript-search.min.js'
+    import search from 'https://unpkg.com/nested-javascript-search@latest/dist/index.js'
     
     // Then you can use search as a function here.
 </script>
@@ -75,6 +75,10 @@ console.log(search(myArray,'cake'))      // [] This version only search inside a
  
 ```
 This searcher only works with arrays, so it wont work with values as nested objects.
+
+### Blacklist
+
+You can also set a blacklist for searching. The blacklist must be an array of strings. Blacklisted elements will be ignored from the keys of the javascript objects during the search.
 
 ## Author
 
