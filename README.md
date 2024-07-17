@@ -62,7 +62,9 @@ const myArray = [
         id:1,
         name:'bar',
         nestedArray:[
-            {name:'coffee'}
+            {
+                name:'coffee'
+            }
         ]
     },
 ]
@@ -79,6 +81,37 @@ This searcher only works with arrays, so it wont work with values as nested obje
 ### Blacklist
 
 You can also set a blacklist for searching. The blacklist must be an array of strings. Blacklisted elements will be ignored from the keys of the javascript objects during the search.
+
+```JavaScript
+
+import { search } from 'nested-javascript-search'
+
+const myArray = [
+    {
+        id:0,
+        example_name:'foo',
+        lastname: 'bar'
+        
+    },
+    {
+        id:1,
+        example_name:'bar',
+        lastname: 'footer'
+    },
+]
+
+const blacklist = [
+    'example_name'
+]
+
+// It wont check keys called "example_name", so it will retrieve
+// the object that its property "lastame" is "footer",
+// since "footer" matches with "foo".
+console.log(search(myArray,'foo', blacklist))      // [ { id: 1, example_name: 'bar', lastname: 'footer' } ]
+
+```
+
+This also works on nested properties keys.
 
 ## Author
 
