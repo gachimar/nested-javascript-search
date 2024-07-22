@@ -1,4 +1,4 @@
-import { escape } from "./utils/regexescaper";
+import { escape } from "./regexescaper";
 
 
 /**
@@ -12,7 +12,7 @@ import { escape } from "./utils/regexescaper";
 export function search (json : Array<any>, parametro : string, blacklist : Array<any> = []){
     const scapedParam =  escape(parametro);
     const parametroRegex : RegExp = new RegExp(scapedParam, "gi")
-    const arrayFiltrada = this.searcher(json, parametroRegex, blacklist)
+    const arrayFiltrada = searcher(json, parametroRegex, blacklist)
     return arrayFiltrada
 } 
 
@@ -48,20 +48,10 @@ export function searcher(json : Array<any>, parametro : RegExp, blacklist : Arra
                 }
             }
 
-            // Si es clave valor y encuentra un numero o string, verificar match.
-            if ( ['string', 'number'].includes(typeof element) ) {
-                const hallado = String(element).match(parametro)
-                
-                if (hallado !== null) {
-                    filterBySearchArray.push(element)
-                    return
-                }
-            } 
-
             // Si no es lo anterior y es un array, entonces llamar de nuevo
             // en la funcion si hay mas elementos dentro del array.
             else if (Array.isArray(element)) {
-                const recursivo = this.searcher(element, parametro, blacklist);
+                const recursivo = searcher(element, parametro, blacklist);
                 if (recursivo.length > 0) {
                     filterBySearchArray.push(element)
                     return
@@ -74,41 +64,20 @@ export function searcher(json : Array<any>, parametro : RegExp, blacklist : Arra
                     if (blacklist.includes(key)) {
                         continue
                     }
-                    
-                    // Esto es por si no es clave valor, verifique inmediatamente
-                    // el valor del elemento actual del array, si encuentra un
-                    // numero o string, verificar match.
-                    if ( ['string', 'number'].includes(typeof element) ){
-                        const hallado = String(element).match(parametro)
+    
+                    // Si es clave valor y encuentra un numero o string, verificar match.
+                    if ( ['string', 'number'].includes(typeof element[key]) ) {
+                        const hallado = String(element[key]).match(parametro)
                         if (hallado !== null) {
                             filterBySearchArray.push(element)
                             return
                         }
                     }
-    
-                    // Si es clave valor y encuentra un numero o string, verificar match.
-                    if ( ['string', 'number'].includes(typeof element[key]) ) {
-                        const hallado = String(element[key]).match(parametro)
-                        
-                        if (hallado !== null) {
-                            filterBySearchArray.push(element)
-                            return
-                        }
-                    } 
-                    // Si es clave valor y encuentra un numero o string, verificar match.
-                    if ( ['string', 'number'].includes(typeof element[key]) ) {
-                        const hallado = String(element[key]).match(parametro)
-                        
-                        if (hallado !== null) {
-                            filterBySearchArray.push(element)
-                            return
-                        }
-                    } 
 
                     // Si no es lo anterior y es un array, entonces llamar de nuevo
                     // en la funcion si hay mas elementos dentro del array.
                     else if (Array.isArray(element[key])) {
-                        const recursivo = this.searcher(element[key], parametro, blacklist);
+                        const recursivo = searcher(element[key], parametro, blacklist);
                         if (recursivo.length > 0) {
                             filterBySearchArray.push(element)
                             return

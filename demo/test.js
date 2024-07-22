@@ -1,5 +1,4 @@
 import { search } from '../dist/index.js'
-
 const myArray = [
     {
         id:0,

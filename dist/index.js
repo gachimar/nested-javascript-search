@@ -1,13 +1,4 @@
-/**
-     * Function to prevent unexpected regex expressions from the required string.
-     *
-     * @param {String} str
-     * @returns { String }
-     */
-export function escape(str = '') {
-    return str.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
-}
-
+import { escape } from "./regexescaper.js";
 /**
      * Funcion principal de busqueda.
      *
@@ -49,14 +40,6 @@ export function searcher(json, parametro, blacklist) {
                     return;
                 }
             }
-            // Si es clave valor y encuentra un numero o string, verificar match.
-            if (['string', 'number'].includes(typeof element)) {
-                const hallado = String(element).match(parametro);
-                if (hallado !== null) {
-                    filterBySearchArray.push(element);
-                    return;
-                }
-            }
             // Si no es lo anterior y es un array, entonces llamar de nuevo
             // en la funcion si hay mas elementos dentro del array.
             else if (Array.isArray(element)) {
@@ -71,24 +54,6 @@ export function searcher(json, parametro, blacklist) {
                 for (const key in element) {
                     if (blacklist.includes(key)) {
                         continue;
-                    }
-                    // Esto es por si no es clave valor, verifique inmediatamente
-                    // el valor del elemento actual del array, si encuentra un
-                    // numero o string, verificar match.
-                    if (['string', 'number'].includes(typeof element)) {
-                        const hallado = String(element).match(parametro);
-                        if (hallado !== null) {
-                            filterBySearchArray.push(element);
-                            return;
-                        }
-                    }
-                    // Si es clave valor y encuentra un numero o string, verificar match.
-                    if (['string', 'number'].includes(typeof element[key])) {
-                        const hallado = String(element[key]).match(parametro);
-                        if (hallado !== null) {
-                            filterBySearchArray.push(element);
-                            return;
-                        }
                     }
                     // Si es clave valor y encuentra un numero o string, verificar match.
                     if (['string', 'number'].includes(typeof element[key])) {
