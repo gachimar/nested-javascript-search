@@ -1,4 +1,4 @@
-import { search } from '../dist/index.js'
+const searcher = require('../dist/index')
 
 const myArray = [
     {
@@ -18,4 +18,4 @@ const blacklist = [
     'name'
 ]
 
-console.log(search(myArray,'foo', blacklist))  
+console.log(searcher.search(myArray,'foo', blacklist))  

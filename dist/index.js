@@ -1,4 +1,12 @@
-import { escape } from "./regexescaper.js";
+/**
+     * Function to prevent unexpected regex expressions from the required string.
+     *
+     * @param {String} str
+     * @returns { String }
+     */
+function escape(str = '') {
+    return str.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, '\\$&');
+}
 /**
      * Funcion principal de busqueda.
      *
@@ -23,7 +31,7 @@ export function search(json, parametro, blacklist = []) {
  * @param {Array} blacklist     // Nombre de las keys a ignorar.
  * @returns
  */
-export function searcher(json, parametro, blacklist) {
+function searcher(json, parametro, blacklist) {
     // La voy a llenar de los elementos del array los cuales al menos
     // en sus elementos o elementos anidados hay una coincidencia.
     const filterBySearchArray = [];

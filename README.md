@@ -48,7 +48,7 @@ Filter the array elements by searching into the nested array. It will then retur
 
 ```JavaScript
 
-import { search } from 'nested-javascript-search'
+const searcher = require('../dist/index.js')
 
 const myArray = [
     {
@@ -62,18 +62,16 @@ const myArray = [
         id:1,
         name:'bar',
         nestedArray:[
-            {
-                name:'coffee'
-            }
+            {name:'coffee'}
         ]
     },
 ]
 
-console.log(search(myArray,'coffee'))   // [ { id: 1, name: 'bar', nestedArray: [ [Object] ] } ]
+console.log(searcher.search(myArray,'coffee'))   // [ { id: 1, name: 'bar', nestedArray: [ [Object] ] } ]
 
-console.log(search(myArray,'foo'))      // [ { id: 0, name: 'foo', nested: { name: 'cake' } } ]
+console.log(searcher.search(myArray,'foo'))      // [ { id: 0, name: 'foo', nested: { name: 'cake' } } ]
 
-console.log(search(myArray,'cake'))      // [] This version only search inside arrays of objects.
+console.log(searcher.search(myArray,'cake'))      // [] This version only search inside arrays of objects.
  
 ```
 This searcher only works with arrays, so it wont work with values as nested objects.
@@ -84,24 +82,24 @@ You can also set a blacklist for searching. The blacklist must be an array of st
 
 ```JavaScript
 
-import { search } from 'nested-javascript-search'
+const searcher = require('../dist/index.js')
 
 const myArray = [
     {
         id:0,
-        example_name:'foo',
+        name:'foo',
         lastname: 'bar'
         
     },
     {
         id:1,
-        example_name:'bar',
+        name:'bar',
         lastname: 'footer'
     },
 ]
 
 const blacklist = [
-    'example_name'
+    'name'
 ]
 
 // It wont check keys called "example_name", so it will retrieve

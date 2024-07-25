@@ -2,14 +2,16 @@
   "name": "nested-javascript-search",
   "version": "1.0.13",
   "description": "Javascript Array deep search filter.",
-  "main": "src/index.ts",
   "files": [
     "dist/index.js"
   ],
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "type": "module",
+  "scripts": {
+    "build": "tsc && tsc --build tsconfig.json",
+    "buildcommon": "tsc && tsc --build tsconfig.ES5.json"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/gachimar/nested-javascript-search"
@@ -27,5 +29,13 @@
     "json"
   ],
   "author": "Gabriel Chirinos <gabrielchirinosmarcano@gmail.com> (https://github.com/gachimar)",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.24.8",
+    "@babel/core": "^7.24.9",
+    "@babel/preset-env": "^7.24.8",
+    "@babel/preset-typescript": "^7.24.7",
+    "@types/node": "^20.14.12",
+    "typescript": "^5.5.4"
+  }
 }

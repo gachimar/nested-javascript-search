@@ -1,10 +1,10 @@
 {
     "compilerOptions": {
-        "module": "ESNext",
-        "target": "ES6",
+        "module": "CommonJS",
+        "target": "ES5",
         "lib": ["ES2020", "DOM"],
         "declaration": true,
-        "outDir": "dist",
+        "outDir": "./dist",
         "moduleResolution": "node"
     },
     "include": ["src/**/*.ts", "**/*.tsx"],
