@@ -3,7 +3,7 @@
   "version": "1.0.15",
   "description": "Javascript Array deep search filter.",
   "files": [
-    "dist/index.js"
+    "dist"
   ],
   "type": "module",
   "scripts": {
