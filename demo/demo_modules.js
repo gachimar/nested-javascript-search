@@ -1,4 +1,4 @@
-import search from '../dist'
+import { search } from '../dist/index.js'
 
 const myArray = [
     {
@@ -19,8 +19,8 @@ const myArray = [
     },
 ]
 
-console.log(search.search(myArray,'coffee'))   // [ { id: 1, name: 'bar', nestedArray: [ [Object] ] } ]
+console.log(search(myArray,'coffee'))   // [ { id: 1, name: 'bar', nestedArray: [ [Object] ] } ]
 
-console.log(search.search(myArray,'foo'))      // [ { id: 0, name: 'foo', nested: { name: 'cake' } } ]
+console.log(search(myArray,'foo'))      // [ { id: 0, name: 'foo', nested: { name: 'cake' } } ]
 
-console.log(search.search(myArray,'cake'))      // [] This version only search inside arrays of objects.
+console.log(search(myArray,'cake'))      // [] This version only search inside arrays of objects.
