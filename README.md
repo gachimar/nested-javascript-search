@@ -27,7 +27,7 @@ You can also use it in your html using a script tag with "module" as type.
 ```html
 
 <script type="module">
-    import search from 'https://unpkg.com/nested-javascript-search@latest/dist/index.js'
+    import { search } from 'https://unpkg.com/nested-javascript-search@latest/dist/index.js'
     
     // Then you can use search as a function here.
 </script>
@@ -48,7 +48,7 @@ Filter the array elements by searching into the nested array. It will then retur
 
 ```JavaScript
 
-const searcher = require('../dist/index.js')
+import { search } from 'https://unpkg.com/nested-javascript-search@latest/dist/index.js'
 
 const myArray = [
     {
@@ -67,11 +67,11 @@ const myArray = [
     },
 ]
 
-console.log(searcher.search(myArray,'coffee'))   // [ { id: 1, name: 'bar', nestedArray: [ [Object] ] } ]
+console.log(search(myArray,'coffee'))   // [ { id: 1, name: 'bar', nestedArray: [ [Object] ] } ]
 
-console.log(searcher.search(myArray,'foo'))      // [ { id: 0, name: 'foo', nested: { name: 'cake' } } ]
+console.log(search(myArray,'foo'))      // [ { id: 0, name: 'foo', nested: { name: 'cake' } } ]
 
-console.log(searcher.search(myArray,'cake'))      // [] This version only search inside arrays of objects.
+console.log(search(myArray,'cake'))      // [] This version only search inside arrays of objects.
  
 ```
 This searcher only works with arrays, so it wont work with values as nested objects.
@@ -82,7 +82,7 @@ You can also set a blacklist for searching. The blacklist must be an array of st
 
 ```JavaScript
 
-const searcher = require('../dist/index.js')
+import { search } from 'https://unpkg.com/nested-javascript-search@latest/dist/index.js'
 
 const myArray = [
     {
